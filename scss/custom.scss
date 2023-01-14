@@ -1,6 +1,24 @@
 // colors
 $primary: #727cf5;
 $sec: #313a46;
+$third: #37404a;
+$dashBg: #333a40;
+
+.dashBg {
+  background-color: $dashBg;
+}
+.sec {
+  background-color: $sec;
+}
+.third {
+  background-color: $third;
+}
+
+.z-index-99 {
+  z-index: 99;
+}
+
+// $secondary: #313a46;
 
 // enabled and disabled options
 $enable-caret: false;
@@ -23,6 +41,24 @@ $navbar-light-toggler-border-color: transparent;
 $navbar-toggler-focus-width: 0;
 $navbar-toggler-padding-x: 0;
 $navbar-toggler-padding-y: 0;
+
+// nav-link
+$nav-link-hover-color: white;
+
+// left panel styles
+.panel-height {
+  height: calc(100vh - 58px);
+  overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $secondary;
+  border-radius: 5px;
+}
 
 // caret
 // $caret-width: 0;
@@ -59,12 +95,29 @@ $utilities: map-merge(
   )
 );
 
-$theme-colors: map-merge(
-  (
-    "sec": $sec,
-  ),
-  $theme-colors
+$custom-theme-colors: (
+  "sec": #313a46,
 );
+
+$theme-colors: map-merge($custom-theme-colors, $theme-colors);
+
+$theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value");
+$utilities-colors: map-merge(
+  $theme-colors-rgb,
+  (
+    "black": to-rgb($black),
+    "white": to-rgb($white),
+    "body": to-rgb($body-color),
+  )
+);
+
+$utilities-text-colors: map-loop(
+  $utilities-colors,
+  rgba-css-var,
+  "$key",
+  "text"
+);
+$utilities-bg-colors: map-loop($utilities-colors, rgba-css-var, "$key", "bg");
 
 // 3. Include remainder of required Bootstrap stylesheets
 

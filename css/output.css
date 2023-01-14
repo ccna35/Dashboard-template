@@ -1,4 +1,34 @@
 @charset "UTF-8";
+.dashBg {
+  background-color: #333a40;
+}
+
+.sec {
+  background-color: #313a46;
+}
+
+.third {
+  background-color: #37404a;
+}
+
+.z-index-99 {
+  z-index: 99;
+}
+
+.panel-height {
+  height: calc(100vh - 58px);
+  overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6c757d;
+  border-radius: 5px;
+}
+
 /*!
  * Bootstrap  v5.2.3 (https://getbootstrap.com/)
  * Copyright 2011-2022 The Bootstrap Authors
@@ -38,6 +68,7 @@
   --bs-danger: #dc3545;
   --bs-light: #f8f9fa;
   --bs-dark: #212529;
+  --bs-sec-rgb: 49, 58, 70;
   --bs-primary-rgb: 114, 124, 245;
   --bs-secondary-rgb: 108, 117, 125;
   --bs-success-rgb: 25, 135, 84;
@@ -3541,7 +3572,7 @@ textarea.form-control-lg {
   --bs-nav-link-padding-y: 0.5rem;
   --bs-nav-link-font-weight: ;
   --bs-nav-link-color: var(--bs-link-color);
-  --bs-nav-link-hover-color: var(--bs-link-hover-color);
+  --bs-nav-link-hover-color: white;
   --bs-nav-link-disabled-color: #6c757d;
   display: flex;
   flex-wrap: wrap;
